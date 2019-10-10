@@ -1,0 +1,9 @@
+com:
+  mqtt:
+    host: tcp://47.101.180.112:1883
+    clientid: duyulong
+    topic: windows
+    username: admin
+    password: public
+    timeout: 10
+    keepalive: 20
