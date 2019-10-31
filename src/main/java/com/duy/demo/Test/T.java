@@ -7,7 +7,7 @@ package com.duy.demo.Test;
  **/
 public class T {
     public static void main(String[] args) {
-        Entity e = new Entity();
-        System.out.println(e.getName());
+
+        System.out.println("b");
     }
 }
