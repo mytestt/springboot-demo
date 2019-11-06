@@ -7,3 +7,14 @@ com:
     password: public
     timeout: 10
     keepalive: 20
+
+
+spring:
+  application:
+    name: springboot-demo
+  #redis配置
+  redis:
+    host: 47.101.180.112
+    password: 123456
+    port: 6379
+    database: 1
