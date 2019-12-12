@@ -1,54 +1,26 @@
 package com.duy.demo.others;
 
-import org.apache.commons.lang3.concurrent.BasicThreadFactory;
-
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.*;
 
 /**
  * @auth duyulong
- * @Description
+ * @description
  * @Date 2019/9/9 15:17
  **/
 public class T{
     public static void main(String[] args) throws IOException {
-//        ExecutorService executor = Executors.newSingleThreadExecutor();
-//        for (int i = 0; i < 10; i++) {
-//            executor.execute(() -> {
-//                System.out.println(Thread.currentThread().getName() + " Start. Time = " + new Date());
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                System.out.println(Thread.currentThread().getName() + " End. Time = " + new Date());
-//            });
-//        }
-//        //终止线程池
-//        executor.shutdown();
-//        while (!executor.isTerminated()) {
-//        }
-//        System.out.println("Finished all threads");
-
-//        ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(5,
-//                new BasicThreadFactory.Builder().namingPattern("example-schedule-pool-%d").daemon(true).build());
-//        for (int i = 0; i < 5; i++) {
-//            executorService.execute(() -> {
-//                System.out.println(Thread.currentThread().getName() + " Start. Time = " + new Date());
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                System.out.println(Thread.currentThread().getName() + " End. Time = " + new Date());
-//            });
-//
-//        }
-        File dir = new File("/opt/config-repo/1"+File.separator);
-        dir.createNewFile();
+        FileInputStream inputStream = new FileInputStream("D:"+File.separator+"CW6478-files"+File.separator+"资料.txt");
+        FileOutputStream outputStream = new FileOutputStream("D:"+File.separator+"CW6478-files"+File.separator+"资料1.txt");
+        byte[] bytes = new byte[256];
+        int len;
+        while ((len=inputStream.read(bytes))!=-1){
+            outputStream.write(bytes);
+            bytes = new byte[256];
+        }
+        inputStream.close();
+        outputStream.close();
     }
 }

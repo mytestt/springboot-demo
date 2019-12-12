@@ -1,0 +1,6 @@
+当使用docker swarm时，websocket服务可能有多个实例即多个容器，客户端随机连接websocket到其中一个，当客户端发送请求需要消息推送时，如果这个请求不是和websocket的连接在同一台服务器
+就会导致获取不到session以至于消息发送失败。
+这里的解决方案是利用redis的发布订阅功能，将一个消息和用户id发送到redis通道，所有的容器订阅这个通道，当获取到数据时根据用户id判断自己是否拥有这个session连接，没有作罢，有则发送
+给指定的客户端
+
+详细教程https://blog.csdn.net/zhuwei_clark/article/details/83547193
